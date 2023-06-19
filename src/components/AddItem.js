@@ -10,8 +10,10 @@ function AddItem({ tasks, setTasks }) {
         }
         const finalNewTask = {
             id:newID,
+            isEdit:false,
             complete:false,
-            taskName:task
+            taskName:task,
+            description:'Test Description'
         }
         console.log(finalNewTask)
         const listTasks = [...tasks,finalNewTask]

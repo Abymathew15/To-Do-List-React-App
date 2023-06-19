@@ -1,16 +1,16 @@
 function ToDoList({ tasks, setTasks }) {
-    //const {tasks, setTasks} = props;
+    
     const handleComplete = (id) => {
         const listTasks = tasks.map((task) => task.id === id ? { ...task, complete: !task.complete } : task)
         setTasks(listTasks)
-        localStorage.setItem('tasks',JSON.stringify(listTasks))
+        localStorage.setItem('tasks', JSON.stringify(listTasks))
         //console.log(listTasks)
     }
 
     const handleDelete = (id) => {
         const listTasks = tasks.filter((task) => task.id !== id)
         setTasks(listTasks)
-        localStorage.setItem('tasks',JSON.stringify(listTasks))
+        localStorage.setItem('tasks', JSON.stringify(listTasks))
     }
 
     if (tasks.length) {
@@ -23,7 +23,7 @@ function ToDoList({ tasks, setTasks }) {
                                 backgroundColor: "#00ff80"
                             }}>
                             <div className="card-body">
-                                <span>{task.taskName}</span>
+                                <span className="card-title">{task.taskName}</span>
                                 &nbsp;<span className="badge bg-success">Completed</span>
                                 <br />
                                 <button type="button" className="btn btn-danger delete"
@@ -49,7 +49,7 @@ function ToDoList({ tasks, setTasks }) {
             }
         </main>
     }
-    else{
+    else {
         return <main>
             <div className="card noTask container shadow p-3 mb-5">
                 <p>Yaay!! You have no pending tasks &#128512;</p>
